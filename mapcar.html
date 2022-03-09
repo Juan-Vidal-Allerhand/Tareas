@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tarea tareita tareosa</title>
+        <style>
+        body{
+            text-align:center;
+        }
+        canvas{
+            border: 1px black solid;
+        }
+        </style>
+    </head>
+    <body>
+        <canvas id = "dibujo" width= "1000" height= "600">
+        <script>
+            var lienzo = document.getElementById("dibujo");
+            var context = lienzo.getContext('2d');                  
+            
+            //Iniciar cuadrilatero azul de la izquierda
+            context.beginPath();
+            context.moveTo(300, 100); // inicie en el extremo superior izquierda
+            context.lineTo(300, 195); // baje hasta el primer vertice, inferior izquierda
+            context.lineTo(370, 195); // linea de la base que subira para formar el cuadrilatero
+            context.lineTo(370, 70); //linea que sube
+            
+            // segundo cuadrilatero azul
+            context.moveTo(500, 195);
+            context.lineTo(630, 195);
+            context.lineTo(630, 70);
+            context.lineTo(500, 115);
+            
+            context.lineWidth = 1;            
+            context.closePath();
+            context.fillStyle = '#0E75A8'; // color de fondo azul
+            context.fill();
+
+            // primer cuadrilatero gris
+            context.beginPath();
+            context.moveTo(370, 70);
+            context.lineTo(370, 195);
+            context.lineTo(500, 195);
+            context.lineTo(500, 115);
+            context.lineTo(370, 70);
+            
+            // segundo cuadrilatero gris, el de la derecha
+            context.moveTo(630, 195);
+            context.lineTo(700, 195);
+            context.lineTo(700, 100);
+            context.lineTo(630, 70);
+            
+            context.lineWidth = 1;            
+            context.closePath();
+            context.fillStyle = '#4E4F4D'; // color de fondo gris
+            context.fill();
+
+            //lineas blancas de arriba
+            context.beginPath();
+            context.moveTo(280, 140);
+            context.lineTo(370, 110);
+            context.lineTo(500, 140);
+            context.lineTo(630, 110);
+            context.lineTo(720, 140);
+                        
+            context.lineWidth = 8;
+            context.strokeStyle='#FFFFFF';
+            context.stroke();
+
+            //lineas blancas de abajo
+            context.beginPath();
+            context.moveTo(280, 170);
+            context.lineTo(370, 150);
+            context.lineTo(500, 170);
+            context.lineTo(630, 150);
+            context.lineTo(720, 170);
+                                    
+            context.lineWidth = 8;
+            context.strokeStyle='#FFFFFF';
+            context.stroke()
+            
+            /* tipografia
+            Lo primero sera crear el MAPCAR gris*/
+
+            context.beginPath();
+            context.font="160px 'Anton'"; // Anton-Regular e Hindi-Bold
+            context.fillStyle='#4E4F4D';
+            context.fillText("MAPCAR", 220, 360, 400);
+            context.closePath();
+
+            // ahora el S.A.S azul
+            context.beginPath();
+            context.font="60px 'Anton'"; // Anton-Regular e Hindi-Bold
+            context.fillStyle='#0E75A8';
+            context.fillText("S.A.S", 650, 360, 400);
+            context.closePath();
+
+            // rectangulo debajo del nombre de la empresa
+            context.beginPath();
+            context.rect(180, 400, 600, 60);
+
+            context.lineWidth = 1;
+            context.closePath();
+            context.strokeStyle='black';
+            context.stroke();
+            context.fillStyle='#4E4F4D';
+            context.fill();
+            
+            // finalizando con CONSTRUCTORA de color blanco sobre el rectangulo gris
+            context.beginPath();
+            context.font="70px 'Hindi'"; // Anton-Regular e Hindi-Bold
+            context.fillStyle='#FFFFFF';
+            context.fillText("CONSTRUCTORA", 230, 450, 600);
+            context.closePath();
+        </script>
+        </canvas>
+    </body>
+</html>
