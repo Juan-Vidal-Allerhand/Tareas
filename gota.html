@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tarea tareita tareosa</title>
+        <style>
+        body{
+            text-align:center;
+        }
+        canvas{
+            border: 1px black solid;
+        }
+        </style>
+    </head>
+    <body>
+        <canvas id = "dibujo" width= "1000" height= "600">
+        <script>
+            var lienzo = document.getElementById("dibujo");
+            var context = lienzo.getContext('2d');
+
+            /*colores:
+            #94e1fb - azul bajo
+            #3aabd7 - azul normalon
+            #f78e00 - el naranja*/
+
+            //semicirculo azul
+            context.beginPath();
+            context.arc(500, 200, 190, Math.PI / 180 * 180, Math.PI / 180 * 0, true);
+            context.fillStyle='#3aabd7';
+            var degradado2 = context.createLinearGradient(305, 500, 495, 500);
+            context.fillStyle=degradado2;
+            degradado2.addColorStop(0, '#3aabd7');
+            degradado2.addColorStop(1, '#94e1fb');
+            context.fill();
+            context.closePath();
+            
+            //semicirculo naranja
+            context.beginPath();
+            context.arc(540, 200, 90, Math.PI / 180 * 360, Math.PI / 180 * 0, true);
+            context.fillStyle='#f78e00';
+            context.fill();
+            context.lineWidth = 35;
+            context.strokeStyle='WHITE';
+            context.stroke();
+            context.closePath();
+            
+            //forma de la gota
+            context.beginPath();
+            context.moveTo(467.5, 200); //inicio del triangulo de gota
+            context.lineTo(471, 180);
+            context.lineTo(525, 20); // punta de la gota
+            context.lineTo(606, 170);
+            context.lineTo(612, 200); // final del punto de la gota
+            context.fillStyle='#f78e00';
+            context.fill();
+            context.lineWidth = 1;
+            context.closePath();
+
+            //circulo azul
+            context.beginPath();
+            context.arc(410, 470, 70, Math.PI / 180 * 360, Math.PI / 180 * 0, true);
+            context.fillStyle='#3aabd7';
+            var degradado2 = context.createLinearGradient(300, 400, 495, 380);
+            context.fillStyle=degradado2;
+            degradado2.addColorStop(0, '#3aabd7');
+            degradado2.addColorStop(1, '#94e1fb');
+            context.fill();
+            context.closePath();
+
+            //circulillos dentro de un circulo azul medio degradado hacia el blanco
+            // primer circulo
+            context.beginPath();
+            context.arc(385, 430, 13, 0, 2 * Math.PI, true);
+            context.fillStyle='WHITE';
+            context.fill();
+
+            //circulo pequeño
+            context.beginPath();
+            context.arc(410, 440, 8, 0, 2 * Math.PI, true);
+            context.fillStyle='WHITE';
+            context.fill();
+
+            //Tercer circulo
+            context.beginPath();
+            context.arc(435, 515, 11, 0, 2 * Math.PI, true);
+            context.fillStyle='WHITE';
+            context.fill();
+
+            //Palabra Agua
+            context.beginPath();
+            context.font ='45px Montserrat Medium';
+            context.fillStyle ='#ffffff';
+            context.fillText("Agua", 350, 487, 150);
+            context.closePath();
+
+            //Palabra Pura
+            context.beginPath();
+            context.font ='45px Montserrat Medium';
+            context.fillStyle ='#f78e00';
+            context.fillText("Pura", 490, 487, 150);
+            context.closePath();
+
+            // letra J
+            context.beginPath();
+            context.font='135px Montserrat Medium';
+            context.fillStyle='#FFFFFF';
+            context.shadowBlur = 10;
+            context.shadowColor='#a04406';
+            context.shadowOffsetX = 6;
+            context.shadowOffsetY = 6;
+            context.fillText("J", 503, 230, 300);
+            context.closePath();
+
+        </script>
+        </canvas>
+    </body>
+</html>
