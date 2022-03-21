@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Las cosas son como son</title>
+        <style>
+        body{
+            text-align:center;
+        }
+        canvas{
+            border: 1px black solid;
+        }
+        </style>
+    </head>
+    <body>
+        <canvas id = "dibujo" width= "1000" height= "600">
+        <script>
+            var lienzo = document.getElementById("dibujo");
+            var context = lienzo.getContext('2d');
+
+            //primera forma ¿color azul? 
+
+            context.beginPath();
+            context.moveTo(540, 425); // inicio de la primera figura
+            context.quadraticCurveTo(590, 110, 294, 40); // linea que creara la curva necesaria
+            context.lineTo(294, 425);
+            context.lineWidth = 1;
+            context.fillStyle='#008FD1'; // color azul
+            context.fill();
+            context.closePath();
+
+            //lado del color verde
+            context.beginPath();
+            context.moveTo(430, 425); //coordenadas del inicio de la segunda curva
+            context.quadraticCurveTo(450, 80, 706, 40);
+            context.lineTo(706, 425);
+            context.fillStyle='#91D041'; // color verde
+            context.fill();
+            context.closePath();        
+            
+            // letras ubuntu - bold
+            context.beginPath();
+            context.font='110px Ubuntu';
+            context.fillStyle='BLACK';
+            context.fillText("MetLife", 300, 570, 400);
+            context.closePath();
+
+            // aqui se hara el sombreado de en medio de la figura
+            context.beginPath();
+            context.moveTo(430, 425);
+            context.quadraticCurveTo(420, 267, 500, 167);
+            context.quadraticCurveTo(600, 290, 580, 425);
+            context.fillStyle='#0062A6'; // color verde
+            context.shadowBlur = 10;
+            context.shadowColor='BLACK';
+            context.shadowOffsetX = 0;
+            context.shadowOffsetY = 0;
+            context.fill();
+            context.closePath();
+        </script>
+        </canvas>
+    </body>
+</html>
